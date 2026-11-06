@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#07111a" />
+  <title>Runa: Ascensão — Arena 3D</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">ᚱ</div><div><span class="brand-title">RUNA</span><span class="brand-sub">ASCENSÃO</span></div></div>
+      <div class="top-center"><span class="wave-dot"></span><span id="status-text">A ARENA DESPERTA</span></div>
+      <button class="icon-btn" id="sound-btn" aria-label="Ativar ou desativar som">♫</button>
+    </header>
+    <section class="hud">
+      <div class="player-card glass">
+        <div class="avatar"><span>ᛉ</span><i></i></div>
+        <div class="player-info"><div class="player-name">GUARDIÃ DA RUNA</div><div class="level-line"><span>NÍVEL</span><strong id="level-number">01</strong><span class="level-target">/ 100</span></div></div>
+        <div class="health-wrap"><div class="bar-label"><span>VITALIDADE</span><b id="health-text">100 / 100</b></div><div class="bar health-bar"><i id="health-fill"></i></div></div>
+      </div>
+      <div class="xp-card glass"><div class="xp-head"><span>✦</span><span>ESSÊNCIA</span><b id="xp-text">0 / 24</b></div><div class="bar xp-bar"><i id="xp-fill"></i></div></div>
+      <div class="kill-card glass"><span class="kill-icon">✧</span><div><b id="kill-count">0</b><small>CRIATURAS</small></div></div>
+    </section>
+    <div class="objective glass"><span class="objective-rune">ᛟ</span><div><b>OBJETIVO</b><span>Derrote criaturas e alcance o <strong>nível 100</strong></span></div><div class="target-progress"><span id="progress-level">01</span><small>/ 100</small></div></div>
+    <div class="crosshair"><i></i></div>
+    <div class="combat-feed" id="combat-feed"></div>
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="joystick" id="joystick"><div class="joy-ring"></div><div class="joy-knob" id="joy-knob"></div></div>
+      <button class="attack-btn" id="attack-btn"><span class="slash-icon">⚔</span><span>ATACAR</span></button>
+      <button class="dash-btn" id="dash-btn"><span>↗</span><small>ESQUIVA</small></button>
+    </div>
+    <div class="desktop-hint"><kbd>W A S D</kbd> mover <kbd>ESPAÇO</kbd> atacar <kbd>SHIFT</kbd> esquivar</div>
+    <div class="toast" id="toast"></div>
+    <div class="overlay" id="start-screen">
+      <div class="start-art"><div class="portal portal-one"></div><div class="portal portal-two"></div><div class="start-rune">ᚱ</div><div class="start-spark">✦</div></div>
+      <div class="start-content"><div class="eyebrow"><i></i> UMA LENDA COMEÇA</div><h1>RUNA<span>ASCENSÃO</span></h1><p>As criaturas despertaram. Atravesse a arena, domine a runa e chegue ao nível 100.</p><div class="start-stats"><div><b>∞</b><span>CRIATURAS</span></div><i></i><div><b>100</b><span>NÍVEIS</span></div><i></i><div><b>3D</b><span>ARENA</span></div></div><button class="primary-btn" id="play-btn"><span>ENTRAR NA ARENA</span><b>↗</b></button><div class="control-note">TOQUE PARA MOVER E ATACAR <span>·</span> WASD NO COMPUTADOR</div></div>
+    </div>
+    <div class="overlay hidden" id="upgrade-screen"><div class="modal-card"><div class="eyebrow"><i></i> PODER DESBLOQUEADO</div><h2>ESCOLHA SUA<br><span>ASCENSÃO</span></h2><p>Seu poder cresce. Escolha uma bênção para continuar.</p><div class="upgrade-list" id="upgrade-list"></div></div></div>
+    <div class="overlay hidden" id="end-screen"><div class="end-emblem">ᛟ</div><div class="eyebrow"><i></i> LENDA ETERNA</div><h2 id="end-title">A ARENA É SUA</h2><p id="end-copy">Você alcançou o nível 100.</p><button class="primary-btn" id="restart-btn"><span>JOGAR NOVAMENTE</span><b>↻</b></button></div>
+    <div class="screen-flash" id="screen-flash"></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
